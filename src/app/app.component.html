@@ -1,0 +1,38 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container-fluid">
+<div style="text-align:center">
+  <h3>
+    Welcome to {{ title }}!
+  </h3>
+</div>
+<div *ngIf="tableData">
+<div class="row">
+  <span class="searchField">
+      Search By Title : 
+      <input type="text" name="searchText" [(ngModel)]="searchText" />
+  </span>
+</div>
+<div class="row">
+  <table class="table table-bordered">
+    <tr>
+      <th>Title</th>
+      <th>Url</th>
+      <th>Author</th>
+      <th>Created_at</th>
+    </tr>
+    <tr *ngFor="let data of tableData.hits | gridFilter: {title: searchText}" (click)="onRowClick(data)">
+      <td>{{data.title}}</td>
+      <td>{{data.url}}</td>
+      <td>{{data.author}}</td>
+      <td>{{data.created_at}}</td>
+    </tr>
+  </table>
+</div>
+</div>
+
+<div class="row" *ngIf="openModal">
+  <app-dialog [displayData]="rowData"></app-dialog>
+</div>
+</div>
+
+<router-outlet></router-outlet>

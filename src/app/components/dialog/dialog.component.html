@@ -1,0 +1,30 @@
+<div appModalDismiss class="backdrop" #modalBackdrop>
+  
+    <!-- The Modal -->
+    <div class="modal" tabindex="-1" role="dialog" #myModal>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h5 class="modal-title">Raw JSON Data</h5>
+            <button type="button" class="close" data-dismiss="modal" (click)="onCloseModal()">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body modalBodyStyle">
+            <p>{{ displayData | json }}</p>
+          </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="onCloseModal()">Close</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  
+  
